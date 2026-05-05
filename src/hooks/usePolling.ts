@@ -54,17 +54,21 @@ export const usePolling = <T,>(
       return
     }
 
-    // Fetch immediately on enable
-    fetch().then(() => {
-      // Schedule next fetch
+    // Recursive function that schedules itself for continuous polling
+    const scheduleFetch = async () => {
+      await fetch()
+      
+      // Calculate next interval with exponential backoff
       const backoffMultiplier = backoffRef.current === 0 ? 0 : Math.pow(2, backoffRef.current - 1)
       const backoffDelay = backoffMultiplier * 10000 // 0, 10s, 20s, 40s
       const nextInterval = interval + backoffDelay
 
-      timeoutRef.current = setTimeout(() => {
-        fetch()
-      }, nextInterval)
-    })
+      // Schedule next fetch
+      timeoutRef.current = setTimeout(scheduleFetch, nextInterval)
+    }
+
+    // Start the polling cycle
+    scheduleFetch()
 
     return () => {
       if (timeoutRef.current) {
