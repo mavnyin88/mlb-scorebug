@@ -74,4 +74,3 @@ export default defineConfig([
   },
 ])
 ```
->>>>>>> a05df63 (Initial commit: MLB scorebug with React Router and linescore API integration)
