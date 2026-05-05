@@ -32,7 +32,7 @@ const Scorebug = () => {
   if (error && !data) {
     return (
       <div style={{ padding: "20px", color: '#FFF' }}>
-        <button 
+        <button
           onClick={() => window.history.back()}
           style={{
             marginBottom: '20px',
@@ -55,7 +55,7 @@ const Scorebug = () => {
   if (!data) {
     return (
       <div style={{ padding: "20px", color: '#FFF' }}>
-        <button 
+        <button
           onClick={() => window.history.back()}
           style={{
             marginBottom: '20px',
@@ -103,7 +103,7 @@ const Scorebug = () => {
         );
       }
       default:
-        return "Mid";
+        return <span style={{ fontSize: '12px' }}>Mid{" "}</span>;
     }
   };
 
@@ -111,7 +111,7 @@ const Scorebug = () => {
   if (!data) {
     return (
       <div style={{ padding: "20px", color: '#FFF' }}>
-        <button 
+        <button
           onClick={() => window.history.back()}
           style={{
             marginBottom: '20px',
@@ -153,7 +153,7 @@ const Scorebug = () => {
       <div style={{ marginBottom: '20px', color: '#FFF', fontSize: '18px' }}>
         {awayTeam} vs {homeTeam}
       </div>
-      <div style={{
+      {/* <div style={{
         marginBottom: '15px',
         fontSize: '12px',
         color: '#9ca3af',
@@ -167,7 +167,7 @@ const Scorebug = () => {
         {lastUpdated && (
           <span>Last: {lastUpdated.toLocaleTimeString()}</span>
         )}
-      </div>
+      </div> */}
       <div className="scorebug-box">
         <div className="team-score-container">
           <p className="team-score-wrapper">
