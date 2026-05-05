@@ -57,7 +57,7 @@ export const usePolling = <T,>(
     // Recursive function that schedules itself for continuous polling
     const scheduleFetch = async () => {
       await fetch()
-      
+
       // Calculate next interval with exponential backoff
       const backoffMultiplier = backoffRef.current === 0 ? 0 : Math.pow(2, backoffRef.current - 1)
       const backoffDelay = backoffMultiplier * 10000 // 0, 10s, 20s, 40s
