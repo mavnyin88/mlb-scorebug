@@ -187,7 +187,7 @@ const Scorebug = () => {
             viewBox="-4 -4 66 48"
           >
             <rect
-              className="base second"
+              className={`base second ${data.offense?.second ? 'active' : ''}`}
               x="22"
               y="2"
               width="16"
@@ -195,7 +195,7 @@ const Scorebug = () => {
               transform="rotate(45 30 10)"
             />
             <rect
-              className="base third"
+              className={`base third ${data.offense?.third ? 'active' : ''}`}
               x="6"
               y="22"
               width="16"
@@ -203,7 +203,7 @@ const Scorebug = () => {
               transform="rotate(45 14 30)"
             />
             <rect
-              className="base first"
+              className={`base first ${data.offense?.first ? 'active' : ''}`}
               x="38"
               y="22"
               width="16"

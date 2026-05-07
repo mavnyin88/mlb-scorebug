@@ -13,14 +13,14 @@
   flex-direction:column;
   /* align-items:center; */
   justify-content:center;
-  gap:12px;
-  font-size:26px;
+  gap:14px;
+  font-size:24px;
 }
 .team-score-wrapper{
   display:flex;
 }
 .team-name{
-  min-width:60px;
+  min-width:65px;
 }
 .team-score{
   margin-left:10px;
@@ -80,8 +80,8 @@
 }
 
 .container h1 {
-  color: #333;
-  margin-bottom: 30px;
+  color: #FFF;
+  margin-bottom: 60px;
   text-align: center;
 }
 
@@ -133,10 +133,6 @@
   justify-content: space-between;
   align-items: center;
   font-weight: 500;
-}
-
-.team-name {
-  font-size: 16px;
 }
 
 .team-record {
