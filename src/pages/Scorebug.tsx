@@ -2,6 +2,44 @@ import { useParams, useSearchParams } from 'react-router-dom'
 import { usePolling } from '../hooks/usePolling'
 import { usePageVisibility } from '../hooks/usePageVisibility'
 
+// MLB Team abbreviation mapping
+const teamAbbreviations: Record<string, string> = {
+  'Baltimore Orioles': 'BAL',
+  'Boston Red Sox': 'BOS',
+  'Chicago White Sox': 'CWS',
+  'Cleveland Guardians': 'CLE',
+  'Detroit Tigers': 'DET',
+  'Houston Astros': 'HOU',
+  'Kansas City Royals': 'KC',
+  'Los Angeles Angels': 'LAA',
+  'Minnesota Twins': 'MIN',
+  'New York Yankees': 'NYY',
+  'Oakland Athletics': 'OAK',
+  'Seattle Mariners': 'SEA',
+  'Tampa Bay Rays': 'TB',
+  'Texas Rangers': 'TEX',
+  'Toronto Blue Jays': 'TOR',
+  'Arizona Diamondbacks': 'ARI',
+  'Atlanta Braves': 'ATL',
+  'Chicago Cubs': 'CHC',
+  'Cincinnati Reds': 'CIN',
+  'Colorado Rockies': 'COL',
+  'Los Angeles Dodgers': 'LAD',
+  'Miami Marlins': 'MIA',
+  'Milwaukee Brewers': 'MIL',
+  'New York Mets': 'NYM',
+  'Philadelphia Phillies': 'PHI',
+  'Pittsburgh Pirates': 'PIT',
+  'San Diego Padres': 'SD',
+  'San Francisco Giants': 'SF',
+  'St. Louis Cardinals': 'STL',
+  'Washington Nationals': 'WSH',
+};
+
+const getTeamAbbreviation = (teamName: string): string => {
+  return teamAbbreviations[teamName] || teamName.substring(0, 3).toUpperCase();
+};
+
 const Scorebug = () => {
   const { gamePk } = useParams<{ gamePk: string }>()
   const [searchParams] = useSearchParams()
@@ -171,11 +209,11 @@ const Scorebug = () => {
       <div className="scorebug-box">
         <div className="team-score-container">
           <p className="team-score-wrapper">
-            <span className="team-name">{homeTeam.substring(0, 3).toUpperCase()}</span>
+            <span className="team-name">{getTeamAbbreviation(homeTeam)}</span>
             <span className="team-score">{teams.home.runs}</span>
           </p>
           <p className="team-score-wrapper">
-            <span className="team-name">{awayTeam.substring(0, 3).toUpperCase()}</span>
+            <span className="team-name">{getTeamAbbreviation(awayTeam)}</span>
             <span className="team-score">{teams.away.runs}</span>
           </p>
         </div>
